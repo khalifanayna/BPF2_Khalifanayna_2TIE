@@ -11,7 +11,10 @@ export default function HelloWorld() {
             <p>Selamat Belajar ReactJs</p>
             <GretingBinjai/>
             <QuoteText/>
-            <UserCard nama="nayna" nim = "2455301089" tanggal = "2005/12/22"/>
+            <UserCard 
+            nama="nayna" 
+            nim = "2455301089" 
+            tanggal = "2005/12/22"/>
             <UserCard {...propsUserCard}/>
         </div>
     )
