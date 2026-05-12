@@ -4,48 +4,21 @@ import PageHeader from "../components/PageHeader";
 export default function Customers() {
   // Masukkan data ke useState agar bisa ditambah secara dinamis
   const [allCustomers, setAllCustomers] = useState([
-    {
-      id: "C001",
-      name: "Khalifa Nayna",
-      email: "nayna@example.com",
-      phone: "0812345678",
-      loyalty: "Gold",
-    },
-    {
-      id: "C002",
-      name: "Budi Santoso",
-      email: "budi@example.com",
-      phone: "0899876543",
-      loyalty: "Silver",
-    },
-    {
-      id: "C003",
-      name: "Siti Aminah",
-      email: "siti@example.com",
-      phone: "0855443322",
-      loyalty: "Bronze",
-    },
-    {
-      id: "C004",
-      name: "Andi Wijaya",
-      email: "andi@mail.com",
-      phone: "0811223344",
-      loyalty: "Gold",
-    },
-    {
-      id: "C005",
-      name: "Dewi Lestari",
-      email: "dewi@mail.com",
-      phone: "0822334455",
-      loyalty: "Silver",
-    },
-    {
-      id: "C015",
-      name: "Oki Setiana",
-      email: "oki@mail.com",
-      phone: "0832333435",
-      loyalty: "Bronze",
-    },
+    { id: "C001", name: "Khalifa Nayna", email: "nayna@example.com", phone: "0812345678", loyalty: "Gold" },
+    { id: "C002", name: "Budi Santoso", email: "budi@example.com", phone: "0899876543", loyalty: "Silver" },
+    { id: "C003", name: "Siti Aminah", email: "siti@example.com", phone: "0855443322", loyalty: "Bronze" },
+    { id: "C004", name: "Andi Wijaya", email: "andi@mail.com", phone: "0811223344", loyalty: "Gold" },
+    { id: "C005", name: "Dewi Lestari", email: "dewi@mail.com", phone: "0822334455", loyalty: "Silver" },
+    { id: "C006", name: "Rizky Pratama", email: "rizky@mail.com", phone: "0812998877", loyalty: "Gold" },
+    { id: "C007", name: "Aisyah Putri", email: "aisyah@example.com", phone: "0852112233", loyalty: "Silver" },
+    { id: "C008", name: "Bambang Heru", email: "bambang@mail.com", phone: "0813445566", loyalty: "Bronze" },
+    { id: "C009", name: "Eka Kusuma", email: "eka@example.com", phone: "0877665544", loyalty: "Gold" },
+    { id: "C010", name: "Fajar Sidik", email: "fajar@mail.com", phone: "0812334455", loyalty: "Silver" },
+    { id: "C011", name: "Gita Permata", email: "gita@example.com", phone: "0895112233", loyalty: "Bronze" },
+    { id: "C012", name: "Hadi Saputra", email: "hadi@mail.com", phone: "0811223399", loyalty: "Gold" },
+    { id: "C013", name: "Indah Sari", email: "indah@example.com", phone: "0852998811", loyalty: "Silver" },
+    { id: "C014", name: "Joko Anwar", email: "joko@mail.com", phone: "0812445566", loyalty: "Bronze" },
+    { id: "C015", name: "Oki Setiana", email: "oki@mail.com", phone: "0832333435", loyalty: "Bronze" },
   ]);
 
   // State untuk Modal dan Form Input

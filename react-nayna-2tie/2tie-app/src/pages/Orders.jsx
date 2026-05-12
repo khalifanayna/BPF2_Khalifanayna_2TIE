@@ -9,6 +9,16 @@ export default function Orders() {
     { id: "ORD-03", name: "Siti Aminah", status: "Cancelled", price: 200000 },
     { id: "ORD-04", name: "Andi Wijaya", status: "Completed", price: 320000 },
     { id: "ORD-05", name: "Dewi Lestari", status: "Pending", price: 45000 },
+    { id: "ORD-06", name: "Rizky Pratama", status: "Completed", price: 120000 },
+    { id: "ORD-07", name: "Aisyah Putri", status: "Pending", price: 85000 },
+    { id: "ORD-08", name: "Bambang Heru", status: "Completed", price: 210000 },
+    { id: "ORD-09", name: "Eka Kusuma", status: "Cancelled", price: 50000 },
+    { id: "ORD-10", name: "Fajar Sidik", status: "Completed", price: 175000 },
+    { id: "ORD-11", name: "Gita Permata", status: "Pending", price: 90000 },
+    { id: "ORD-12", name: "Hadi Saputra", status: "Completed", price: 300000 },
+    { id: "ORD-13", name: "Indah Sari", status: "Pending", price: 110000 },
+    { id: "ORD-14", name: "Joko Anwar", status: "Completed", price: 250000 },
+    { id: "ORD-15", name: "Kartika Sari", status: "Cancelled", price: 135000 },
   ]);
 
   // State untuk Modal dan Form
