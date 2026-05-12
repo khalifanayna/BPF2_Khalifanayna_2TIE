@@ -1,32 +1,40 @@
-import { createRoot } from "react-dom/client";
-import "./assets/tailwind.css";
-import Sidebar from "./layouts/Sidebar";
-import Header from "./layouts/Header";
-import Dashboard from "./pages/Dashboard";
+import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import Orders from "./pages/Orders";
-import Customers from "./pages/Customers";
-import NotFound from "./pages/NotFound";
+import "./assets/tailwind.css";
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import Loading from "./components/Loading";
+import { createRoot } from "react-dom/client";
+const Dashboard = React.lazy(() => import("./pages/Dashboard"))
+const Orders = React.lazy(() => import("./pages/Orders"));
+const Customers = React.lazy(() => import("./pages/Customers"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
+const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
+const Login = React.lazy(() => import("./pages/auth/Login"));
+const Register = React.lazy(() => import("./pages/auth/Register"));
+const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
 
-function App() {
+
+export default function App() {
   return (
-    <div>
-      <div id="app-container" className="bg-gray-100 min-h-screen flex">
-        <div id="layout-wrapper" className="flex flex-row flex-1">
-          <Sidebar />
-          <div id="main-content" className="flex-1 p-4">
-            <Header />
-            <Routes>
-              <Route path="*" element={<NotFound/>} />
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/orders" element={<Orders />} />
-              <Route path="/customers" element={<Customers />} />
-            </Routes>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/customers" element={<Customers />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+
+      <Route element={<AuthLayout />}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot" element={<Forgot />} />
+      </Route>
+    </Routes>
+    </Suspense>
   );
 }
 
-export default App
+
