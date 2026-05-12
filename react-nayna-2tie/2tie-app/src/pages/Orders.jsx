@@ -51,45 +51,62 @@ export default function Orders() {
         {/* Header Section */}
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-gray-800 tracking-tight">Dashboard</h1>
-            <p className="text-gray-500 text-sm">Dashboard / Order List</p>
+            <h1 className="text-xl font-bold text-gray-800 border-l-4 border-green-500 pl-4">
+              Data Order
+            </h1>
           </div>
-          <button 
-            onClick={() => setShowModal(true)}
-            className="bg-[#00b894] hover:bg-[#00a383] text-white px-6 py-2.5 rounded-xl font-semibold shadow-lg transition-all active:scale-95"
-          >
-            Add Button
-          </button>
         </div>
 
         {/* Tabel Pesanan */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-          <h2 className="text-lg font-bold mb-6 text-gray-700">Riwayat Pesanan</h2>
+          <h2 className="text-lg font-bold mb-6 text-gray-700">
+            Riwayat Pesanan
+          </h2>
           <div className="overflow-x-auto">
             <table className="min-w-full">
               <thead>
                 <tr className="text-gray-400 text-xs uppercase tracking-wider border-b border-gray-100">
                   <th className="px-6 py-4 text-left font-semibold">ID</th>
-                  <th className="px-6 py-4 text-left font-semibold">Customer</th>
-                  <th className="px-6 py-4 text-center font-semibold">Status</th>
+                  <th className="px-6 py-4 text-left font-semibold">
+                    Customer
+                  </th>
+                  <th className="px-6 py-4 text-center font-semibold">
+                    Status
+                  </th>
                   <th className="px-6 py-4 text-right font-semibold">Total</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
                 {currentData.map((o) => (
-                  <tr key={o.id} className="hover:bg-gray-50/50 transition-colors">
-                    <td className="px-6 py-4 text-sm font-medium text-purple-400">{o.id}</td>
-                    <td className="px-6 py-4 text-sm font-medium text-gray-700">{o.name}</td>
+                  <tr
+                    key={o.id}
+                    className="hover:bg-gray-50/50 transition-colors"
+                  >
+                    <td className="px-6 py-4 text-sm font-medium text-purple-400">
+                      {o.id}
+                    </td>
+                    <td className="px-6 py-4 text-sm font-medium text-gray-700">
+                      {o.name}
+                    </td>
                     <td className="px-6 py-4 text-center">
-                      <span className={`px-3 py-1 rounded-md text-[10px] font-bold tracking-wider ${
-                        o.status === 'Completed' ? 'bg-green-100 text-green-600' : 
-                        o.status === 'Pending' ? 'bg-amber-100 text-amber-600' : 'bg-red-100 text-red-600'
-                      }`}>
+                      <span
+                        className={`px-3 py-1 rounded-md text-[10px] font-bold tracking-wider ${
+                          o.status === "Completed"
+                            ? "bg-green-100 text-green-600"
+                            : o.status === "Pending"
+                              ? "bg-amber-100 text-amber-600"
+                              : "bg-red-100 text-red-600"
+                        }`}
+                      >
                         {o.status.toUpperCase()}
                       </span>
                     </td>
                     <td className="px-6 py-4 text-sm font-bold text-gray-800 text-right">
-                      {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(o.price)}
+                      {new Intl.NumberFormat("id-ID", {
+                        style: "currency",
+                        currency: "IDR",
+                        maximumFractionDigits: 0,
+                      }).format(o.price)}
                     </td>
                   </tr>
                 ))}
@@ -99,17 +116,21 @@ export default function Orders() {
 
           {/* Pagination Controls */}
           <div className="mt-8 flex items-center justify-between">
-            <span className="text-sm text-gray-500">Halaman <b>{currentPage}</b> dari <b>{totalPages}</b></span>
+            <span className="text-sm text-gray-500">
+              Halaman <b>{currentPage}</b> dari <b>{totalPages}</b>
+            </span>
             <div className="flex gap-2">
               <button
-                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
                 className="px-5 py-2 text-sm font-semibold border rounded-xl hover:bg-gray-50 disabled:opacity-30 transition-all"
               >
                 Previous
               </button>
               <button
-                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
                 disabled={currentPage === totalPages}
                 className="px-5 py-2 text-sm font-bold border-2 border-gray-800 rounded-xl hover:bg-gray-800 hover:text-white disabled:opacity-30 transition-all"
               >
@@ -127,9 +148,11 @@ export default function Orders() {
             <h2 className="text-xl font-bold mb-4">Tambah Pesanan Baru</h2>
             <form onSubmit={handleAddOrder} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Nama Customer</label>
-                <input 
-                  type="text" 
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Nama Customer
+                </label>
+                <input
+                  type="text"
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
                   className="w-full border border-gray-200 rounded-xl px-4 py-2 focus:ring-2 focus:ring-green-500 outline-none"
@@ -138,9 +161,11 @@ export default function Orders() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Total Harga (Rp)</label>
-                <input 
-                  type="number" 
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Total Harga (Rp)
+                </label>
+                <input
+                  type="number"
                   value={newPrice}
                   onChange={(e) => setNewPrice(e.target.value)}
                   className="w-full border border-gray-200 rounded-xl px-4 py-2 focus:ring-2 focus:ring-green-500 outline-none"
@@ -149,14 +174,14 @@ export default function Orders() {
                 />
               </div>
               <div className="flex gap-3 mt-6">
-                <button 
+                <button
                   type="button"
                   onClick={() => setShowModal(false)}
                   className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl font-semibold hover:bg-gray-50"
                 >
                   Batal
                 </button>
-                <button 
+                <button
                   type="submit"
                   className="flex-1 px-4 py-2.5 bg-[#00b894] text-white rounded-xl font-semibold hover:bg-[#00a383]"
                 >
