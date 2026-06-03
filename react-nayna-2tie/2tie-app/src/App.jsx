@@ -1,10 +1,9 @@
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-
 import "./assets/tailwind.css";
-
 import Loading from "./components/Loading";
 import Products from "./pages/Products";
+import ProductDetail from "./pages/ProductDetail";
 
 // layouts
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
@@ -37,6 +36,7 @@ export default function App() {
           <Route path="/customers" element={<Customers />} />
           <Route path="/products" element={<Products />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/peoducts/:id" element={<ProductDetail />} />
           
         </Route>
 

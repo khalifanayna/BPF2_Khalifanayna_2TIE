@@ -2,14 +2,13 @@ import PageHeader from "../components/PageHeader";
 // import products from "../data/product-sedap.json"
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { BsFillExclamationDiamondFill } from "react-icons/bs"; 
+import { BsFillExclamationDiamondFill } from "react-icons/bs";
 
 export default function Products() {
   const breadcrumb = ["Dashboard", "Product List"];
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [query, setQuery] = useState("");
-
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -21,14 +20,14 @@ export default function Products() {
             return;
           }
           setProducts(response.data.products);
-          setError(null); 
+          setError(null);
         })
         .catch((err) => {
           setError(err.message || "An unknown error occurred");
         });
-    }, 500); 
+    }, 500);
 
-    return () => clearTimeout(timeout); 
+    return () => clearTimeout(timeout);
   }, [query]);
 
   const errorInfo = error ? (
@@ -69,7 +68,14 @@ export default function Products() {
               <td className="px-6 py-4 font-medium text-gray-700">
                 {index + 1}.
               </td>
-              <td className="px-6 py-4">{item.title}</td>
+              <td className="px-6 py-4">
+                <Link
+                  to={`/products/${item.id}`}
+                  className="text-emerald-400 hover:text-emerald-500"
+                >
+                  {item.title}
+                </Link>
+              </td>
               <td className="px-6 py-4">{item.category}</td>
               <td className="px-6 py-4">Rp {item.price * 1000}</td>
               <td className="px-6 py-4">{item.brand || "-"}</td>
