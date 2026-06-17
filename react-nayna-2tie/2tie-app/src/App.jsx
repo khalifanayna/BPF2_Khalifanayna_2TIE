@@ -4,6 +4,7 @@ import "./assets/tailwind.css";
 import Loading from "./components/Loading";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
+import Notes from "./pages/Notes";
 
 // layouts
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/products" element={<Products />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/peoducts/:id" element={<ProductDetail />} />
+          <Route path="/notes" element={<Notes />} />
           
         </Route>
 
