@@ -26,6 +26,10 @@ export default function Notes() {
     });
   };
 
+  useEffect(() => {
+    loadNotes();
+  }, []);
+
   // Load notes (used to refresh data after create)
   const loadNotes = async () => {
     try {
@@ -40,9 +44,6 @@ export default function Notes() {
     }
   };
 
-  useEffect(() => {
-    loadNotes();
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -157,7 +158,7 @@ export default function Notes() {
         ) : (
 
           <GenericTable
-            columns={["#", "Judul", "Isi Catatan", "Aksi"]} //Tambah Kolom baru
+            columns={["#", "Judul", "Isi Catatan", "Aksi"]} 
             data={notes}
             renderRow={(note, index) => (
               <>
